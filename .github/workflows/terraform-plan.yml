@@ -1,0 +1,28 @@
+name: Run Terraform Plan on Push
+on:
+  push:
+    - "**"
+
+permissions:
+  contentes: read
+
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+    container:
+      image: hashicorp/terraform:1.2.3
+    steps:
+      - name: "Checkout Repo"
+        uses: actions/checkout@v2
+      - name: "Inititialize Terraform"
+        run: terraform init
+        env:
+          ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
+          ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{ secrets.AZ_CLIENT_SECRET}}
+      - name: "Run Terraform Plan"
+        run: terraform plan
+        env:
+          ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
+          ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{ secrets.AZ_CLIENT_SECRET}}

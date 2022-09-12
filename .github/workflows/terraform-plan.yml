@@ -5,7 +5,7 @@ on:
       - "**"
 
 permissions:
-  contentes: read
+  contents: read
 
 jobs:
   terraform-plan:

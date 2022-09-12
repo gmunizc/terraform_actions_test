@@ -17,13 +17,6 @@ jobs:
         uses: actions/checkout@v2
       - name: "Inititialize Terraform"
         run: terraform init
-      # - name: "Insteall Curl for AZ CLI"
-      #   run: apt install curl -y
-      # - name: "Inititialize Terraform"
-      #   uses: azure/CLI@v1
-      #   with:
-      #     azcliversion: 2.39.0
-      #     inlineScript: terraform init
         env:
           ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
           ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID}}

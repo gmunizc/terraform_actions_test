@@ -11,6 +11,15 @@ provider "azurerm" {
   features {}
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name = "rg-tfstate"
+    storage_account_name = "satfstategh01"
+    container_name = "sctfstategh01"
+    key = "gh_gmunizc_terraform_actions_test.tfstate"
+  }
+}
+
 resource "azurerm_resource_group" "example" {
   name     = "rg-test-example-resources"
   location = "eastus2"

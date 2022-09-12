@@ -13,10 +13,10 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name = "rg-tfstate"
+    resource_group_name  = "rg-tfstate"
     storage_account_name = "satfstategh01"
-    container_name = "sctfstategh01"
-    key = "gh_gmunizc_terraform_actions_test.tfstate"
+    container_name       = "sctfstategh01"
+    key                  = "gh_gmunizc_terraform_actions_test.tfstate"
   }
 }
 

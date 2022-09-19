@@ -22,6 +22,8 @@ jobs:
           az group list
           pwd
 
+    - name: "Checkout Repo"
+      uses: actions/checkout@v2
     - name: "Inititialize Terraform"
       run: terraform init
     - name: "Run Terraform Plan"

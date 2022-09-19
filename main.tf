@@ -18,6 +18,7 @@ terraform {
     storage_account_name = "satfstategh01"
     container_name       = "sctfstategh01"
     key                  = "gh_gmunizc_terraform_actions_test.tfstate"
+    use_oidc = true
   }
 }
 

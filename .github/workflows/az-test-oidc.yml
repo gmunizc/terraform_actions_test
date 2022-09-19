@@ -22,5 +22,7 @@ jobs:
           az group list
           pwd
 
+    - name: "Inititialize Terraform"
+      run: terraform init
     - name: "Run Terraform Plan"
       run: terraform plan

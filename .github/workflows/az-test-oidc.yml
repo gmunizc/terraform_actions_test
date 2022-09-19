@@ -26,5 +26,13 @@ jobs:
       uses: actions/checkout@v2
     - name: "Inititialize Terraform"
       run: terraform init
+      env:
+        ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID}}
+        ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}
     - name: "Run Terraform Plan"
       run: terraform plan
+      env:
+        ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID}}
+        ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}

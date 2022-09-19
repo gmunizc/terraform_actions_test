@@ -21,3 +21,6 @@ jobs:
           az account show
           az group list
           pwd
+
+    - name: "Run Terraform Plan"
+        run: terraform plan

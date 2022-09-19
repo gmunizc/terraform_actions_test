@@ -1,4 +1,4 @@
-name: Run Azure Login with OpenID Connect
+name: Run Terraform with OpenID Connect
 on: [push]
 
 permissions:
@@ -8,18 +8,14 @@ permissions:
 jobs: 
   terraform-plan:
     runs-on: ubuntu-latest
+    env:
+        ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID}}
+        ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}
     steps:
     - name: "Checkout Repo"
       uses: actions/checkout@v2
     - name: "Inititialize Terraform"
       run: terraform init
-      env:
-        ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID}}
-        ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}
     - name: "Run Terraform Plan"
       run: terraform plan
-      env:
-        ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID}}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID}}
-        ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID}}
